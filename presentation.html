@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Directed Data Project</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Boyoon Chang, Tami Ren, Emmett Saulnier, and Brock Wilson" />
+    <meta name="date" content="2020-10-29" />
+    <link href="presentation_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="presentation_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="presentation_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="presentation_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="presentation_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="my-css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Directed Data Project
+### Boyoon Chang, Tami Ren, Emmett Saulnier, and Brock Wilson
+### 10/29/2020
+
+---
+
+class: inverse, middle
+
+
+
+
+
+
+
+# What are the drivers of application and repayment of digital credit?  
+
+---
+# Loan Pathways and Durations  
+
+.pull-left[
+&lt;img src="data/flow_diagram.png" width="803" style="display: block; margin: auto;" /&gt;
+]  
+
+.pull-right[
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Transition &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; min &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; q25 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; median &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; q75 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; max &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mean &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sd &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 150 - 160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.62 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.88 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.88 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10376.07 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183.58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 658.73 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 150 - 200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.69 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 90.72 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4252.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 229.89 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 738.28 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 160 - 160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 423.97 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1333.68 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2816.86 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12381.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1946.81 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2001.54 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 160 - 161 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 47.92 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 882.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11182.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 648.80 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1194.95 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 160 - 162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.37 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39.55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 756.39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8667.93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 587.75 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1174.98 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 161 - 161 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.07 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.72 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8452.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 244.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 938.85 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 161 - 162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5458.65 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30.71 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 264.30 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 162 - 162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.88 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8991.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 230.29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 831.42 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 162 - 163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10298.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 55.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 359.67 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 163 - 163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8209.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 144.57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 697.17 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 163 - 200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.48 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7578.12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.46 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 188.18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+
+---
+# Frequency of Loan Pathways
+.pull-left[
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Pathway &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Frequency &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Percent &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7620 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 163 162 161 160 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1479 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 200 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1255 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1254 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 163 162 161 160 150 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1231 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 130 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 995 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 130 100 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 974 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 200 130 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 926 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 163 162 160 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 506 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 300 200 163 162 160 150 130 100 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 358 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;img src="presentation_files/figure-html/s2r-1.svg" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# "Perfect" Loan Repayment Analysis
+&lt;img src="data/brock_reg_table.png" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
+  
+---
+class: inverse, middle
+# Agent response hours
+  
+---
+# Agents only respond during work hours
+
+&lt;img src="presentation_files/figure-html/agent-1.svg" style="display: block; margin: auto;" /&gt;
+
+---
+# However, increased time has no effect
+
+.pull-left[
+&lt;img src="presentation_files/figure-html/rd1 -1.svg" style="display: block; margin: auto;" /&gt;&lt;img src="presentation_files/figure-html/rd1 -2.svg" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="presentation_files/figure-html/rd2-1.svg" style="display: block; margin: auto;" /&gt;&lt;img src="presentation_files/figure-html/rd2-2.svg" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: inverse, middle
+# Effect of Murder Rate
+
+---
+# Murder rate summary stats
+
+
+
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 8px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; Classification &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Closed (N=10481) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Overdue (N=3692) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Total (N=14173) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; p value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Income** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.470 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 96142.060 (1359667.046) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 78732.450 (921307.826) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 91606.938 (1260241.599) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3500.000 - 55000000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3500.000 - 20100000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3500.000 - 55000000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Requested Loan Amount** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2188.827 (657.319) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2123.876 (651.089) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2171.908 (656.298) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1500.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1500.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1500.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Requested Loan Term** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.803 (7.673) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.684 (6.934) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.032 (7.497) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Actual Loan Amount** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1798.058 (367.614) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1718.459 (321.672) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1777.323 (357.916) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1000.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1500.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1000.000 - 3000.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Actual Loan Term** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20.795 (7.400) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.590 (6.770) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.002 (7.250) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7.000 - 30.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Murder Rate by State** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.142 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.873 (1.580) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.829 (1.541) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.862 (1.570) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.270 - 9.392 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.270 - 9.392 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.270 - 9.392 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Murder Rate by Municipal** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.747 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; N-Miss &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 97 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.881 (2.852) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.863 (2.728) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.876 (2.820) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 86.730 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 61.614 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 86.730 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Murder Rate Summary Statistics (cont')
+
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 10px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; Classification &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Closed (N=10481) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Overdue (N=3692) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Total (N=14173) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; p value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Number of Dependents** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mean (SD) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.200 (1.134) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.293 (1.148) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.225 (1.138) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Range &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 5.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 5.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.000 - 5.000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Gender** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.026 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4733 (45.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1589 (43.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6322 (44.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5748 (54.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2103 (57.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7851 (55.4%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Civil Status** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.015 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; divorced &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 596 (5.7%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 190 (5.1%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 786 (5.5%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; married &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5035 (48.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1883 (51.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6918 (48.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; single &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4749 (45.3%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1580 (42.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6329 (44.7%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; widow &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 101 (1.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 39 (1.1%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 140 (1.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Loan Sequence** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4461 (42.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1928 (52.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6389 (45.1%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3415 (32.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 999 (27.1%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4414 (31.1%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2605 (24.9%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 765 (20.7%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3370 (23.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; **Credit Score** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Average &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3456 (33.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1247 (33.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4703 (33.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Best &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 618 (5.9%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 117 (3.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 735 (5.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Better &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2792 (26.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 720 (19.5%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3512 (24.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Marginal &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2810 (26.8%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1387 (37.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4197 (29.6%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; None &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 805 (7.7%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 221 (6.0%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1026 (7.2%) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Murder Rate Regression
+
+&lt;img src="data/boyoon_reg_table.png" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Effect of Murder Rate over time
+
+&lt;img src="presentation_files/figure-html/cars-1.svg" style="display: block; margin: auto;" /&gt;
+---
+class: inverse, middle
+# Effect of soccer games and holidays
+
+---
+# Futbol: Is Liga MX affecting borrowing?
+
+
+.pull-left[
+&lt;img src="data/map.gif" style="display: block; margin: auto;" /&gt;
+- Evaluated locations near LIGA MX stadiums (8-100 mi radius)
+  + Looked at probability of applying on gamedays for all agents, near and far away from stadiums  
+  + Looked at probability of paying back loans on gameday applications  
+]
+.pull-right[
+- Regression Results:  
+  + Mexico City shares three teams, in which two use the same stadium.  
+  + Assumption of distance to stadium might cause other issues not controlled for.  
+- Further analysis needed:  
+  + Find data that includes preferred team for each agent  
+  + Look at data with applications from May-September (soccer off-season) =&gt; may potentially be a diff-in-diff  
+  + Evaluate lagged effects: if a team loses -&gt; did they apply the next day?  
+]
+---
+# Futbol Regression Results
+&lt;img src="data/fut_reg.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Holidays: Is there something there? 
+.pull-left[
+&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.svg" style="display: block; margin: auto;" /&gt;
+- Holidays/festivals might explain the increase application count  
+- Put together a list of observed and national holidays  
+]
+.pull-right[
+- Applications peak on March 20  
+- Statistical significant results from regressing number of applications on Holidays, fixing weekday and month:  
+  - Ascension day, Christmas, Benito Juarez Day, New Years, Mother’s Day, and Constitution Day  
+  - Carnival was not significant after included FE  
+- Further Analysis:  
+  - Look at lag effects from holidays for a more robust evaluation of the impact of holidays such as Carnival  
+]
+
+---
+# Holiday Regression Results  
+.pull-left[
+&lt;img src="data/hol_reg1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="data/hol_reg2.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+class: inverse, middle  
+# Questions?
+
+---
+# Locations of Soccer Games
+.pull-left[
+&lt;img src="presentation_files/figure-html/socloc-1.svg" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="data/soc_loc.png" width="1125" style="display: block; margin: auto;" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
