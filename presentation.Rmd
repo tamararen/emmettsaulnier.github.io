@@ -717,11 +717,11 @@ include_graphics('data/map.gif')
 .pull-right[
 - Regression Results:  
   + Mexico City shares three teams, in which two use the same stadium.  
-  + Assumption of distance to stadium might cause other issues not controlled for.  
+  + Assumption of distance to stadium might be problematic.  
 - Further analysis needed:  
   + Find data that includes preferred team for each agent  
-  + Look at data with applications from May-September (soccer off-season) => may potentially be a diff-in-diff  
-  + Evaluate lagged effects: if a team loses -> did they apply the next day?  
+  + Look at data with applications from May-September (soccer off-season) => is there a statistical difference?  
+  + Evaluate lagged effects: if a team loses => did they apply the next day or the day before? 
 ]
 ---
 # Futbol Regression Results
