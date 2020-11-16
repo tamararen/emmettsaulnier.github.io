@@ -550,7 +550,7 @@ class: inverse, middle
 # Effect of Murder Rate
 
 ---
-# Murder rate summary stats
+# Murder Rate Summary Statistics
 
 ```{r results = "asis", warning = FALSE, fig.width=20, fig.height=10, echo=FALSE, message = FALSE}
 
